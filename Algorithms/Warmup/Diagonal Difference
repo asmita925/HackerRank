@@ -1,0 +1,31 @@
+// https://www.hackerrank.com/challenges/diagonal-difference
+// C++
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int diagonalDifference(vector<vector<int>> arr) {
+   int i = 0, j = 0;
+   int diff = 0;
+
+   for (i = 0; i < arr.size(); i++)
+   {
+     for (j = 0; j < arr[i].size(); j++) {
+       if (i == j) {
+         diff += arr[i][j];
+       }
+
+       if (i + j == arr.size() - 1) {
+           diff -= arr[i][j];
+       }
+     }
+   } // end of for loop
+
+   if (diff < 0)
+   {
+       diff = diff * (-1);
+   }
+
+   return diff;
+}
