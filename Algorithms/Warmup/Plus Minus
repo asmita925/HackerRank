@@ -1,0 +1,28 @@
+// https://www.hackerrank.com/challenges/plus-minus
+// C++
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+// Complete the plusMinus function below.
+void plusMinus(vector<int> arr) {
+   int i = 0;
+   double numNeg = 0, numPos = 0, numZero = 0;
+
+   for (i = 0; i < arr.size(); i++) {
+     if (arr.at(i) < 0) {
+         numNeg++;
+     } else if (arr.at(i) > 0) {
+         numPos++;
+     } else {
+         numZero++;
+     }
+   } // end of for loop
+
+   cout << setprecision(6) << fixed << (numPos / arr.size()) << endl;
+   cout << setprecision(6) << fixed << (numNeg / arr.size()) << endl;
+   cout << setprecision(6) << fixed << (numZero / arr.size());
+}
