@@ -1,0 +1,29 @@
+// https://www.hackerrank.com/challenges/30-data-types
+// C++
+
+#include <iostream>
+#include <iomanip>
+#include <limits>
+
+using namespace std;
+
+int main() {
+   int i = 4;
+   double d = 4.0;
+   string s = "HackerRank ";
+   
+   int j = 0;
+   double e = 0.0;
+   string t;
+
+   cin>> j;
+   cin>>e;
+   cin.ignore();
+   getline(cin, t);
+
+   cout << i + j << endl;
+   cout << std::setprecision(1) <<std::fixed << d+e << endl;
+   cout << s + t;
+
+   return 0;
+}
