@@ -1,0 +1,17 @@
+// https://www.hackerrank.com/challenges/30-loops
+// C++
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void
+printMultipleTable(int num)
+{
+   int i = 1;
+
+   for (i = 1; i <= 10; i++)
+   
+       cout<< num << " x " << i << " = " << num*i << endl;
+  
+}
