@@ -1,0 +1,28 @@
+// https://www.hackerrank.com/challenges/30-review-loop
+// C++
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void printEvenOddIndex(vector<string> list) {
+   int i = 0, j = 0;
+   string s, temp;
+
+   for (i = 0; i < list.size(); i++) {
+       s = list.at(i);
+       temp = "";
+       for (j = 0; j < s.length(); j++)
+       {
+           if (j % 2 == 0) {
+               cout<<s.at(j);
+           } else {
+               temp += s.at(j);
+           }
+       } // end of j loop
+       cout << " " << temp << endl;
+   }
+}
