@@ -1,0 +1,64 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
+vector<string> split_string(string s)
+{
+   vector<string> split;
+   string temp;
+   int i = 0;
+
+   while (i < s.length())
+   {
+       if (s.at(i) == ' ')
+       {
+           split.push_back(temp);
+           temp.clear();
+       } else {
+           temp += s.at(i);
+       }
+
+       i++;
+   } // end of while loop
+
+   if (temp.length() > 0)
+   {
+       split.push_back(temp);
+   }
+
+   return split;
+}
+
+int main() {
+   int i = 0, numOfEntries = 0, phoneNum = 0;
+   string temp;
+   vector<string> name;
+   map<string, int> phoneBook;
+   map<string, int>::iterator it;
+
+   cin>>numOfEntries;
+   cin.ignore();
+
+   for (i = 0; i < numOfEntries; i++) {
+       getline(cin, temp);
+       name = split_string(temp);
+       phoneBook.insert(pair<string,int>(name[0], stoi(name[1])));
+   }
+
+   while (getline(cin, temp)) {
+     it = phoneBook.find(temp);
+
+     if (it == phoneBook.end()) {
+       cout << "Not found" << endl;
+     } else {
+       cout << temp << "=" << it->second << endl;
+     }
+   } // end of while loop
+
+   return 0;
+}
