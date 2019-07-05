@@ -1,0 +1,13 @@
+// https://www.hackerrank.com/challenges/mini-max-sum
+// C++
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+void miniMaxSum(vector<int> arr) {
+   sort(arr.begin(), arr.end());
+   cout<<arr[0]+arr[1]+arr[2]+arr[3]<<" "<<arr[1]+arr[2]+arr[3]+arr[4];
+}
