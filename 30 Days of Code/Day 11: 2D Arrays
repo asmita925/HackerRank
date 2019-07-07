@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int getMaxSumHourglass(vector<vector<int>> arr) {
+   int sum = 0, maxSum = INT_MIN, i = 0, j = 0;
+
+   while (i < 4) {
+       j = 1;
+       while (j < 5) {
+           sum = arr[i][j-1] + arr[i][j] + arr[i][j+1] + arr[i+1][j] +
+                 arr[i+2][j-1] + arr[i+2][j] + arr[i+2][j+1];
+
+           if (sum > maxSum) {
+               maxSum = sum;
+           }
+
+           j++;
+       }
+       i++;
+   }
+   return maxSum;
+}
