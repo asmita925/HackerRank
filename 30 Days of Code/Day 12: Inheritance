@@ -1,0 +1,46 @@
+// https://www.hackerrank.com/challenges/30-inheritance
+// C++
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Student :  public Person{
+    private:
+        vector<int> testScores; 
+    public:
+ 
+       Student (string firstName, string lastName, int id, vector<int> scores):
+           Person(firstName, lastName, id) {
+           testScores = scores;
+       }
+       
+       char calculate()
+       {
+           char grade;
+           int i  = 0;
+           double average = 0;
+
+           for (i = 0; i < testScores.size(); i++)
+           {
+               average += testScores.at(i);
+           }
+
+           average /= testScores.size();
+
+           if (average >= 90.00 && average <= 100.00) {
+               return 'O';
+           } else if (average >= 80.00 && average < 90.00) {
+               return 'E';
+           } else if (average >= 70.00 && average < 80.00) {
+               return 'A';
+           } else if (average >= 55.00 && average < 70.00) {
+             return 'P';
+           } else if (average >= 40.00 && average < 55.00) {
+               return 'D';
+           } else {
+               return 'T';
+           }
+       }
+};
