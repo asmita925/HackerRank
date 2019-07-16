@@ -1,0 +1,48 @@
+// https://www.hackerrank.com/challenges/30-queues-stacks
+// C++
+#include <iostream>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+class Solution {
+   private:
+       stack<char> charStack;
+       queue<char> charQueue;
+
+   public:
+       void pushCharacter(char ch)
+       {
+           charStack.push(ch);
+       }
+
+       void enqueueCharacter(char ch)
+       {
+           charQueue.push(ch);
+       }
+
+       char popCharacter()
+       {
+           char ch;
+           if (!charStack.empty())
+           {
+               ch = charStack.top();
+               charStack.pop();
+           }
+
+           return ch;
+       }
+
+       char dequeueCharacter()
+       {
+           char ch;
+           if (!charQueue.empty())
+           {
+               ch = charQueue.front();
+               charQueue.pop();
+           }
+
+           return ch;
+       }
+};
