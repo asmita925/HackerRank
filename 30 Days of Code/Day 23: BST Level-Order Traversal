@@ -1,0 +1,65 @@
+// https://www.hackerrank.com/challenges/30-binary-trees
+// C++
+
+#include <iostream>
+#include <cstddef>
+#include <queue>
+#include <string>
+#include <cstdlib>
+
+using namespace std;    
+class Node{
+   public:
+       int data;
+       Node *left,*right;
+       Node(int d){
+           data=d;
+           left=right=NULL;
+       }
+};
+
+class Solution{
+   public:
+       Node* insert(Node* root, int data){
+           if (root==NULL){
+               return new Node(data);
+           }
+           else{
+               Node* cur;
+               if(data<=root->data){
+                   cur=insert(root->left,data);
+                   root->left=cur;
+               }
+               else{
+                  cur=insert(root->right,data);
+                  root->right=cur;
+                }          
+          return root;
+          }
+       }
+
+    void levelOrder(Node * root){
+       queue<Node *> visited;
+
+       visited.push(root);
+
+       while (!visited.empty())
+       {
+           cout<<(visited.front())->data;
+           cout <<" ";
+
+           if ((visited.front())->left)
+           {
+               visited.push((visited.front())->left);
+           }
+
+           if ((visited.front())->right)
+           {
+               visited.push((visited.front())->right);
+           }
+
+           visited.pop();
+       } // end of while loop
+    }
+
+};//End of Solution
