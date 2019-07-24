@@ -1,0 +1,39 @@
+// https://www.hackerrank.com/challenges/30-running-time-and-complexity
+// C++
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool
+checkPrime(int num)
+{
+   int i = 2;
+
+   if (num <= 1)
+   {
+       return false;
+   }
+
+   if (num%2 == 0 && num >= 9)
+   {
+       return false;
+   } else if (num%2 != 0 && num >= 9) {
+       i++;
+   }
+   
+   while (i <= sqrt(num))
+   {
+       if (num % i == 0)
+       {
+           return false;
+       }
+
+       i = i+2;
+   } // end of while loop
+
+   return true;
+}
