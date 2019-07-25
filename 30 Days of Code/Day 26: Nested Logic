@@ -1,0 +1,24 @@
+// https://www.hackerrank.com/challenges/30-nested-logic
+// C++
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int calculateFine(int day_diff, int month_diff, int year_diff)
+{
+   int fine = 0;
+
+   if (month_diff == 0 && year_diff == 0 && day_diff > 0) {
+       fine = 15 * day_diff;
+   } else if (month_diff > 0 && year_diff == 0){
+       fine = 500 * month_diff;
+   } else if (year_diff > 0) {
+       fine = 10000;
+   }
+
+   return fine;
+}
