@@ -1,0 +1,42 @@
+//https://www.hackerrank.com/challenges/box-it/problem
+// C++
+ 
+#include<bits/stdc++.h>
+ 
+using namespace std;
+
+class Box {
+   private:
+       int height;
+       int length;
+       int breadth;
+ 
+   public:
+       Box() { height = length = breadth = 0; }
+       Box(int l, int b, int h) {height = h; length = l; breadth = b; }
+       Box (Box &copy) {
+           height = copy.height;
+           length = copy.length;
+           breadth = copy.breadth;
+       }
+ 
+       int getLength() { return length; }
+       int getBreadth() { return breadth; }
+       int getHeight() { return height; }
+       long long CalculateVolume() { return static_cast<long long>(length) * height * breadth; }
+ 
+       friend bool operator < (Box& A, Box &B)
+       {
+           if ( (A.length < B.length) || ((A.breadth < B.breadth) && (A.length == B.length)) || ((A.height < B.height) && (A.length == B.length) && (A.breadth == B.breadth)) ) {
+               return true;
+           }
+ 
+           return false;
+       }
+ 
+       friend ostream& operator<< (ostream& out, Box &b)
+       {
+           out<<b.length<<" "<<b.breadth<<" "<<b.height;
+           return out;
+       }
+};
