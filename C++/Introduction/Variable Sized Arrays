@@ -1,0 +1,40 @@
+// https://www.hackerrank.com/challenges/variable-sized-arrays
+// C++
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+   int noOfQueries = 0, noOfArrays = 0, noOfElements = 0;
+   int i = 0, element = 0, j = 0, arr_I = 0, ele_J = 0;
+   vector<vector<int>> listOfArrays;
+   vector<int> arr;
+
+   cin>>noOfArrays>>noOfQueries;
+
+   for (i = 0; i < noOfArrays; i++)
+   {
+       cin>>noOfElements;
+       for (j = 0; j < noOfElements; j++)
+       {
+           cin>>element;
+           arr.push_back(element);
+       }
+
+       listOfArrays.push_back(arr);
+       arr.clear();
+   }
+
+   for (i = 0; i < noOfQueries; i++)
+   {
+       cin>>arr_I>>ele_J;
+       cout<<listOfArrays[arr_I][ele_J]<<endl;
+   }
+
+   return 0;
+}
